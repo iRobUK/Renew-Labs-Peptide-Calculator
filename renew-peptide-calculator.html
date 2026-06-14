@@ -1,0 +1,1126 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Renew Labs peptide calculator for vial reconstitution research calculations."
+    />
+    <title>Renew Labs Peptide Calculator</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2269%2048%2075%2075%22%3E%3Cg%20fill%3D%22%23055275%22%3E%3Cpath%20d%3D%22M133.2%2C88.17c0%2C3.28-2.66%2C5.94-5.94%2C5.94-.74%2C0-1.44-.13-2.09-.37-.66-.47-1.35-.91-2.06-1.3-3.07-1.71-6.61-2.68-10.37-2.68-10.55%2C0-19.33%2C7.64-21.08%2C17.69-.18%2C1.06-.3%2C2.15-.32%2C3.26-.87%2C2.21-3.02%2C3.77-5.53%2C3.77-3.28%2C0-5.95-2.66-5.95-5.95%2C0-1.73.74-3.28%2C1.91-4.37.93-.41%2C1.82-.88%2C2.66-1.41%2C6.05-3.78%2C10.06-10.5%2C10.06-18.16%2C0-6.53-2.93-12.39-7.54-16.31-.88-.75-1.83-1.43-2.83-2.03-.76-1-1.21-2.24-1.21-3.59%2C0-3.29%2C2.66-5.95%2C5.95-5.95%2C2.82%2C0%2C5.18%2C1.96%2C5.8%2C4.6-.09.76-.12%2C1.53-.12%2C2.3%2C0%2C.26%2C0%2C.53.01.79.41%2C11.45%2C9.83%2C20.62%2C21.4%2C20.62%2C2.59%2C0%2C5.06-.46%2C7.35-1.3h0c1.07-.39%2C2.11-.87%2C3.09-1.43.28-.04.56-.06.85-.06%2C3.28%2C0%2C5.94%2C2.66%2C5.94%2C5.95Z%22%2F%3E%3Ccircle%20cx%3D%22110.35%22%20cy%3D%2271.78%22%20r%3D%223.57%22%2F%3E%3Ccircle%20cx%3D%22108.32%22%20cy%3D%22102.57%22%20r%3D%223.57%22%2F%3E%3Ccircle%20cx%3D%2282.58%22%20cy%3D%2285.44%22%20r%3D%223.57%22%2F%3E%3C%2Fg%3E%3Cpolygon%20points%3D%22108.27%20102.7%20110.35%2071.78%2082.5%2085.42%20108.27%20102.7%22%20fill%3D%22none%22%20stroke%3D%22%23055275%22%20stroke-miterlimit%3D%2210%22%20stroke-width%3D%22.66%22%2F%3E%3C%2Fsvg%3E" />
+    <link rel="icon" type="image/png" sizes="32x32" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgBAMAAACBVGfHAAAAGFBMVEX////+///9/v77/f3L2+Jkk6kMV3oBS3CmPHpQAAABfklEQVR42k2RzWsTURTFf/PeoKG0zmsTLUrNvM50I9Y2JHGhK4P0L/D/FN2HkoUgBD9qW4R+OBlD0yg0M29GoY2YPBf5MHd3zj33cu85gETyvyT49ZWCmRMC0Qvr3UXF7hN/yWUucUFloBZGps1idUZ0Ew9g8Gm246a3URiZP9vPTuxEYcPXClMOgvmO6HG8JY5w5oTNO873Rpqszi4l//l8/bq1fG0mChk+tFa3KgKKNYXEpr8aS8PlthYPvvVvcEXNNyOcp+7VAXV9Hrs7a0G7dc/LA1VyAmWNC5iKwstCsOnmG3GYRKUjbKZSMAqkvfy69igYep1+f3g/u/3eRVY+7Fmv/e4v8pU+LTtAWGycvK1ZRscv9scusLI5/m3pJGKnqWMB4bE+My9XDePDaoxEJHvrnwelYKPww/bBpXx3136hVx3Gk/flRdVYjY/RE9e9LS9LI3v1sTk16A4w8MmbeppL9xagGAfRzMIo83IDU4yDLnn7diF+BOgF+A9Imo9zoYP+uQAAAABJRU5ErkJggg==" />
+    <link rel="apple-touch-icon" href="data:image/png;base64,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" />
+    <link rel="mask-icon" href="data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%2269%2048%2075%2075%22%3E%3Cg%20fill%3D%22%23055275%22%3E%3Cpath%20d%3D%22M133.2%2C88.17c0%2C3.28-2.66%2C5.94-5.94%2C5.94-.74%2C0-1.44-.13-2.09-.37-.66-.47-1.35-.91-2.06-1.3-3.07-1.71-6.61-2.68-10.37-2.68-10.55%2C0-19.33%2C7.64-21.08%2C17.69-.18%2C1.06-.3%2C2.15-.32%2C3.26-.87%2C2.21-3.02%2C3.77-5.53%2C3.77-3.28%2C0-5.95-2.66-5.95-5.95%2C0-1.73.74-3.28%2C1.91-4.37.93-.41%2C1.82-.88%2C2.66-1.41%2C6.05-3.78%2C10.06-10.5%2C10.06-18.16%2C0-6.53-2.93-12.39-7.54-16.31-.88-.75-1.83-1.43-2.83-2.03-.76-1-1.21-2.24-1.21-3.59%2C0-3.29%2C2.66-5.95%2C5.95-5.95%2C2.82%2C0%2C5.18%2C1.96%2C5.8%2C4.6-.09.76-.12%2C1.53-.12%2C2.3%2C0%2C.26%2C0%2C.53.01.79.41%2C11.45%2C9.83%2C20.62%2C21.4%2C20.62%2C2.59%2C0%2C5.06-.46%2C7.35-1.3h0c1.07-.39%2C2.11-.87%2C3.09-1.43.28-.04.56-.06.85-.06%2C3.28%2C0%2C5.94%2C2.66%2C5.94%2C5.95Z%22%2F%3E%3Ccircle%20cx%3D%22110.35%22%20cy%3D%2271.78%22%20r%3D%223.57%22%2F%3E%3Ccircle%20cx%3D%22108.32%22%20cy%3D%22102.57%22%20r%3D%223.57%22%2F%3E%3Ccircle%20cx%3D%2282.58%22%20cy%3D%2285.44%22%20r%3D%223.57%22%2F%3E%3C%2Fg%3E%3Cpolygon%20points%3D%22108.27%20102.7%20110.35%2071.78%2082.5%2085.42%20108.27%20102.7%22%20fill%3D%22none%22%20stroke%3D%22%23055275%22%20stroke-miterlimit%3D%2210%22%20stroke-width%3D%22.66%22%2F%3E%3C%2Fsvg%3E" color="#055275" />
+    <meta name="theme-color" content="#055275" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="Renew Labs Peptide Calculator" />
+    <meta property="og:description" content="Peptide reconstitution calculator for vial dosage research calculations." />
+    <meta property="og:image" content="data:image/png;base64,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" />
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Renew Labs Peptide Calculator" />
+    <meta name="twitter:description" content="Peptide reconstitution calculator for vial dosage research calculations." />
+    <meta name="twitter:image" content="data:image/png;base64,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" />
+    <style>
+:root {
+  --ink: #17221f;
+  --muted: #5f6966;
+  --soft: #eef4f5;
+  --paper: #fbfcfc;
+  --card: #ffffff;
+  --line: #dbe6e8;
+  --blue: #055275;
+  --blue-deep: #04445f;
+  --blue-soft: #e8f2f6;
+  --green: #274c4f;
+  --cream: #f7f4ee;
+  --danger: #8d3d39;
+  --shadow: 0 22px 70px rgba(29, 47, 52, 0.12);
+  --radius: 8px;
+  color-scheme: light;
+  font-family:
+    Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  min-height: 100vh;
+  margin: 0;
+  color: var(--ink);
+  background:
+    linear-gradient(180deg, rgba(238, 244, 245, 0.84), rgba(251, 252, 252, 0.94) 38%),
+    var(--paper);
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page-shell {
+  width: min(1180px, calc(100% - 28px));
+  margin: 0 auto;
+  padding: 32px 0 56px;
+}
+
+.hero {
+  display: grid;
+  min-height: 430px;
+  padding: 42px 34px;
+  color: #fff;
+  background: var(--blue);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+  place-items: center;
+}
+
+.hero-copy {
+  display: grid;
+  justify-items: center;
+  max-width: 680px;
+  text-align: center;
+}
+
+.hero-copy img,
+.hero-copy .inline-logo {
+  display: block;
+  width: clamp(150px, 24vw, 260px);
+  height: auto;
+}
+
+.hero-copy .inline-logo svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.hero-copy strong {
+  margin-top: 18px;
+  font-size: clamp(2.2rem, 6vw, 4.8rem);
+  line-height: 0.95;
+}
+
+.eyebrow {
+  margin: 0 0 8px;
+  color: color-mix(in srgb, currentColor 70%, transparent);
+  font-size: 0.78rem;
+  font-weight: 760;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.hero h1,
+.calculator-card h2,
+.faq-shell h2 {
+  margin: 0;
+  letter-spacing: 0;
+}
+
+.hero h1 {
+  max-width: 640px;
+  margin-top: 18px;
+  color: rgba(255, 255, 255, 0.86);
+  font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+  font-weight: 640;
+  line-height: 1.25;
+}
+
+.calculator-card,
+.faq-shell {
+  margin-top: 24px;
+  padding: 28px;
+  background: var(--card);
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
+}
+
+.calculator-card h2,
+.faq-shell h2 {
+  font-size: clamp(1.6rem, 3vw, 2.25rem);
+}
+
+.content-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.82fr) minmax(0, 1.18fr);
+  gap: 24px;
+  align-items: start;
+}
+
+.input-stack {
+  display: grid;
+  gap: 20px;
+}
+
+.input-panel,
+.results-panel {
+  display: grid;
+  gap: 20px;
+  padding: 22px;
+  background: #fff;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+}
+
+.input-panel {
+  background: linear-gradient(180deg, #fff, #fbfcfc);
+}
+
+.field {
+  display: grid;
+  gap: 9px;
+}
+
+.field label {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  color: #44504c;
+  font-size: 1rem;
+  font-weight: 740;
+}
+
+.info-dot {
+  position: relative;
+  display: inline-grid;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 auto;
+  color: var(--blue);
+  place-items: center;
+  border: 2px solid #b9c9de;
+  border-radius: 999px;
+  background: #fff;
+  font-weight: 800;
+  line-height: 1;
+  touch-action: manipulation;
+}
+
+.tip-pop {
+  position: fixed;
+  z-index: 20;
+  max-width: min(300px, calc(100vw - 28px));
+  padding: 10px 12px;
+  color: #fff;
+  font-size: 0.86rem;
+  font-weight: 680;
+  line-height: 1.35;
+  background: var(--ink);
+  border-radius: 8px;
+  box-shadow: 0 14px 40px rgba(23, 34, 31, 0.18);
+}
+
+.tip-pop::before {
+  content: "";
+  position: absolute;
+  top: -6px;
+  left: 18px;
+  width: 12px;
+  height: 12px;
+  background: var(--ink);
+  transform: rotate(45deg);
+}
+
+.input-wrap {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  min-height: 60px;
+  padding: 0 16px;
+  background: #f9fbfd;
+  border: 2px solid #cddbf2;
+  border-radius: 10px;
+}
+
+.input-wrap:focus-within {
+  border-color: var(--blue);
+  box-shadow: 0 0 0 4px rgba(56, 85, 121, 0.12);
+}
+
+.input-wrap input,
+.input-wrap select {
+  min-width: 0;
+  height: 56px;
+  color: #20262d;
+  font-size: 1.45rem;
+  font-weight: 720;
+  line-height: 1;
+  border: 0;
+  outline: 0;
+  background: transparent;
+}
+
+.input-wrap input[type="number"] {
+  appearance: textfield;
+  -moz-appearance: textfield;
+}
+
+.input-wrap input[type="number"]::-webkit-outer-spin-button,
+.input-wrap input[type="number"]::-webkit-inner-spin-button {
+  margin: 0;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.input-wrap span,
+.input-wrap select {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 56px;
+  color: var(--blue);
+  font-size: 1.45rem;
+  font-weight: 780;
+  line-height: 1;
+  text-align: right;
+}
+
+.unit-select {
+  grid-template-columns: minmax(0, 1fr) 108px;
+}
+
+.unit-select select {
+  padding: 0 24px 0 0;
+}
+
+.hint {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+.button-row {
+  display: grid;
+  grid-template-columns: auto;
+  gap: 10px;
+}
+
+.primary-action,
+.secondary-action {
+  min-height: 48px;
+  padding: 0 18px;
+  color: #fff;
+  font-weight: 780;
+  border: 0;
+  border-radius: 8px;
+  background: var(--blue);
+  touch-action: manipulation;
+}
+
+.primary-action:hover,
+.secondary-action:hover {
+  background: var(--blue-deep);
+}
+
+.secondary-action {
+  width: 100%;
+}
+
+.share-action {
+  justify-self: center;
+  width: min(300px, 100%);
+  margin-top: clamp(18px, 5vw, 76px);
+}
+
+.result-head {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 12px;
+}
+
+.result-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 12px;
+}
+
+.result-tile {
+  display: grid;
+  gap: 8px;
+  min-height: 142px;
+  padding: 18px;
+  align-content: center;
+  background: var(--soft);
+  border: 1px solid var(--line);
+  border-radius: 10px;
+}
+
+.result-tile.featured {
+  color: #fff;
+  background: var(--blue);
+  border-color: var(--blue);
+}
+
+.result-tile.featured span {
+  color: #fff;
+}
+
+.results-panel.invalid-state .result-tile.featured {
+  color: var(--ink);
+  background: var(--soft);
+  border-color: var(--line);
+}
+
+.results-panel.invalid-state .result-tile.featured span {
+  color: color-mix(in srgb, var(--ink) 72%, transparent);
+}
+
+.result-tile span {
+  color: color-mix(in srgb, currentColor 72%, transparent);
+  font-size: 0.86rem;
+  font-weight: 750;
+  text-transform: uppercase;
+}
+
+.result-tile strong {
+  font-size: clamp(1.65rem, 4vw, 2.7rem);
+  line-height: 1;
+}
+
+.syringe-wrap {
+  display: grid;
+  justify-items: center;
+  gap: 18px;
+}
+
+.dose-illustration {
+  width: min(520px, 88%);
+  height: auto;
+  color: #687276;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 5;
+}
+
+.syringe-fill {
+  fill: var(--blue);
+  opacity: 0.92;
+  stroke: none;
+}
+
+.syringe-marks {
+  stroke-width: 3;
+  opacity: 0.65;
+}
+
+#syringeDisclaimer,
+.note-box {
+  margin: 0;
+  padding: 18px 20px;
+  color: #253038;
+  line-height: 1.65;
+  background: var(--blue-soft);
+  border-radius: 10px;
+}
+
+.note-box {
+  background: #f0f7f2;
+}
+
+.quick-conversions {
+  display: grid;
+  gap: 12px;
+  padding-top: 4px;
+}
+
+.quick-conversions h3 {
+  margin: 0;
+  font-size: 1rem;
+}
+
+.conversion-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 8px;
+}
+
+.conversion-grid span {
+  padding: 10px 12px;
+  color: var(--muted);
+  background: #fbfcfc;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+}
+
+.faq-shell {
+  display: grid;
+  grid-template-columns: 0.7fr 1.3fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.faq-copy {
+  position: sticky;
+  top: 20px;
+}
+
+.faq-copy p:not(.eyebrow) {
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.faq-list {
+  display: grid;
+  gap: 10px;
+}
+
+.faq-item {
+  border: 1px solid var(--line);
+  border-radius: 10px;
+  background: #fff;
+}
+
+.faq-item summary {
+  padding: 18px 20px;
+  font-weight: 780;
+  list-style: none;
+  cursor: pointer;
+}
+
+.faq-item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq-item summary::after {
+  content: "+";
+  float: right;
+  color: var(--blue);
+  font-size: 1.25rem;
+}
+
+.faq-item[open] summary::after {
+  content: "-";
+}
+
+.faq-answer {
+  padding: 0 20px 20px;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+.faq-answer p {
+  margin: 0 0 12px;
+}
+
+.faq-answer p:last-child {
+  margin-bottom: 0;
+}
+
+.faq-answer a {
+  color: var(--blue);
+  font-weight: 750;
+}
+
+.faq-answer ol,
+.faq-answer ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.invalid {
+  color: var(--danger);
+}
+
+@media (max-width: 900px) {
+  .hero,
+  .content-grid,
+  .faq-shell {
+    grid-template-columns: 1fr;
+  }
+
+  .hero {
+    min-height: auto;
+  }
+
+  .result-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .faq-copy {
+    position: static;
+  }
+}
+
+@media (max-width: 560px) {
+  .page-shell {
+    width: min(100% - 18px, 1180px);
+    padding-top: 9px;
+  }
+
+  .hero,
+  .calculator-card,
+  .faq-shell,
+  .input-panel,
+  .results-panel {
+    padding: 18px;
+  }
+
+  .button-row,
+  .result-head {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .conversion-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .dose-illustration {
+    width: min(360px, 100%);
+  }
+
+  .input-wrap input,
+  .input-wrap select,
+  .input-wrap span {
+    font-size: 1.18rem;
+  }
+}
+
+    </style>
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <span class="inline-logo" aria-hidden="true"><svg xmlns="http://www.w3.org/2000/svg" viewBox="76 53 61 65" aria-hidden="true">
+  <g fill="#fff">
+    <path d="M133.2,88.17c0,3.28-2.66,5.94-5.94,5.94-.74,0-1.44-.13-2.09-.37-.66-.47-1.35-.91-2.06-1.3-3.07-1.71-6.61-2.68-10.37-2.68-10.55,0-19.33,7.64-21.08,17.69-.18,1.06-.3,2.15-.32,3.26-.87,2.21-3.02,3.77-5.53,3.77-3.28,0-5.95-2.66-5.95-5.95,0-1.73.74-3.28,1.91-4.37.93-.41,1.82-.88,2.66-1.41,6.05-3.78,10.06-10.5,10.06-18.16,0-6.53-2.93-12.39-7.54-16.31-.88-.75-1.83-1.43-2.83-2.03-.76-1-1.21-2.24-1.21-3.59,0-3.29,2.66-5.95,5.95-5.95,2.82,0,5.18,1.96,5.8,4.6-.09.76-.12,1.53-.12,2.3,0,.26,0,.53.01.79.41,11.45,9.83,20.62,21.4,20.62,2.59,0,5.06-.46,7.35-1.3h0c1.07-.39,2.11-.87,3.09-1.43.28-.04.56-.06.85-.06,3.28,0,5.94,2.66,5.94,5.95Z"/>
+    <circle cx="110.35" cy="71.78" r="3.57"/>
+    <circle cx="108.32" cy="102.57" r="3.57"/>
+    <circle cx="82.58" cy="85.44" r="3.57"/>
+  </g>
+  <polygon points="108.27 102.7 110.35 71.78 82.5 85.42 108.27 102.7" fill="none" stroke="#fff" stroke-miterlimit="10" stroke-width=".66"/>
+</svg>
+</span>
+          <strong>Renew Labs</strong>
+          <h1 id="page-title">Peptide reconstitution calculator</h1>
+        </div>
+      </section>
+
+      <section class="calculator-card" aria-label="Peptide calculator">
+        <div class="content-grid">
+          <div class="input-stack">
+          <form class="input-panel" id="calculatorForm">
+            <div class="field">
+              <label for="amountMg">
+                <span>Amount of Peptide</span>
+                <button class="info-dot" type="button" data-tip="Amount of peptide (in mg or iu) in the vial">i</button>
+              </label>
+              <div class="input-wrap unit-select">
+                <input id="amountMg" name="amountMg" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+                <select id="amountUnit" name="amountUnit" aria-label="Peptide amount unit">
+                  <option value="mg">mg</option>
+                  <option value="iu">iU</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" id="waterField">
+              <label for="waterMl">
+                <span id="waterLabel">Bacteriostatic Water</span>
+                <button class="info-dot" type="button" id="waterInfo" data-tip="Amount of bacteriostatic water you're adding to the vial">i</button>
+              </label>
+              <div class="input-wrap">
+                <input id="waterMl" name="waterMl" type="number" inputmode="decimal" min="0" max="10" step="0.1" value="0" />
+                <span>mL</span>
+              </div>
+              <p class="hint">Accepted range: 2-10 mL.</p>
+            </div>
+
+            <div class="field">
+              <label for="doseValue">
+                <span id="doseLabel">Dose</span>
+                <button class="info-dot" type="button" data-tip="The dose you want. Choose either mcg, iU or mg">i</button>
+              </label>
+              <div class="input-wrap unit-select">
+                <input id="doseValue" name="doseValue" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+                <select id="doseUnit" name="doseUnit" aria-label="Dose unit">
+                  <option value="mcg">mcg</option>
+                  <option value="iu">iU</option>
+                  <option value="mg">mg</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button class="primary-action" type="button" id="calculateButton">Calculate Dosage</button>
+              <button class="secondary-action" type="reset">Reset</button>
+            </div>
+          </form>
+          <button class="primary-action share-action" type="button" id="shareButton">Share via WhatsApp</button>
+          </div>
+
+          <section class="results-panel invalid-state" aria-live="polite">
+            <div class="result-head">
+              <p class="eyebrow">Results</p>
+              <h2 id="resultTitle">Vial dosage</h2>
+            </div>
+
+            <div class="result-grid">
+              <article class="result-tile featured">
+                <span id="volumeTitle">Volume to draw</span>
+                <strong id="volumeMl">-</strong>
+              </article>
+              <article class="result-tile" id="unitTile">
+                <span id="unitTitle">Units to draw</span>
+                <strong id="unitResult">-</strong>
+              </article>
+              <article class="result-tile" id="countTile">
+                <span id="countTitle">Approx doses / vial</span>
+                <strong id="doseCount">-</strong>
+              </article>
+            </div>
+
+            <div class="syringe-wrap" id="syringeWrap" aria-label="Syringe draw guide">
+              <svg class="dose-illustration syringe-illustration" viewBox="0 0 520 150" role="img" aria-label="Syringe">
+                <line x1="12" y1="75" x2="95" y2="75" />
+                <line x1="20" y1="52" x2="20" y2="98" />
+                <rect class="syringe-fill" id="syringeFill" x="96" y="42" width="0" height="66" rx="2" />
+                <rect x="96" y="42" width="300" height="66" rx="2" />
+                <g class="syringe-marks">
+                  <line x1="128" y1="42" x2="128" y2="78" />
+                  <line x1="160" y1="42" x2="160" y2="66" />
+                  <line x1="192" y1="42" x2="192" y2="78" />
+                  <line x1="224" y1="42" x2="224" y2="66" />
+                  <line x1="256" y1="42" x2="256" y2="78" />
+                  <line x1="288" y1="42" x2="288" y2="66" />
+                  <line x1="320" y1="42" x2="320" y2="78" />
+                  <line x1="352" y1="42" x2="352" y2="66" />
+                  <line x1="384" y1="42" x2="384" y2="78" />
+                </g>
+                <path d="M396 57 L430 68 L430 82 L396 93 Z" />
+                <line x1="430" y1="75" x2="500" y2="75" />
+              </svg>
+              <p id="syringeDisclaimer">
+                Enter your peptide amount, bacteriostatic water and dose to calculate your draw volume.
+              </p>
+            </div>
+
+            <section class="quick-conversions" aria-labelledby="conversion-title">
+              <h3 id="conversion-title">Quick conversions</h3>
+              <div class="conversion-grid">
+                <span>1 mg = 1000 mcg</span>
+                <span>0.1 mL = 10 syringe units</span>
+                <span>1 syringe unit = 0.01 mL</span>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <section class="faq-shell">
+        <div class="faq-copy">
+          <p class="eyebrow">Guidance</p>
+          <h2 id="faqTitle">Vial FAQs</h2>
+          <p>Your peptide questions, answered.</p>
+        </div>
+        <div class="faq-list" id="faqList">
+          <details class="faq-item">
+            <summary>How do I reconstitute lyophilised peptides?</summary>
+            <div class="faq-answer">
+              <p>Add the chosen amount of bacteriostatic water to the peptide vial. Allow it to sit for 1-2 minutes. Use reconstitution syringes found <a href="https://docs.google.com/spreadsheets/d/1SHIV8DyZ_1Wl9HtnlXaGnZBrpvp4KybQKamQurZHVnc/edit?usp=sharing" target="_blank" rel="noopener">here</a>.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Which syringe size do I need?</summary>
+            <div class="faq-answer">
+              <p>0.5 or 1 mL syringes with a 29 or 30 gauge needle are recommended. You will also need alcohol swabs and a sharps bin. A list of products can be found <a href="https://docs.google.com/spreadsheets/d/1SHIV8DyZ_1Wl9HtnlXaGnZBrpvp4KybQKamQurZHVnc/edit?usp=sharing" target="_blank" rel="noopener">here</a>.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I store my peptides?</summary>
+            <div class="faq-answer">
+              <p>All peptides, once reconstituted need to be refrigerated. To keep the them sterile we recommend you keeping them in a closed, airtight box such as a Tupperware container.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How long will my peptides last?</summary>
+            <div class="faq-answer">
+              <p>Peptides are medications and thus have an amount of time during which they are most effective. For the most it is recommended that you aim to use your peptide within in 30 days of reconstitution.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <script>
+
+// Pristine, fully self-contained snapshot of this page, captured before any
+// runtime mutation. Used to re-share THIS calculator as an .html file.
+const PRISTINE_HTML = "<!doctype html>\n" + document.documentElement.outerHTML;
+
+const UNIT_ML = 0.01;
+const SYRINGE_VISUAL_ML = 1;
+const els = {
+  form: document.querySelector("#calculatorForm"),
+  amount: document.querySelector("#amountMg"),
+  amountUnit: document.querySelector("#amountUnit"),
+  waterMl: document.querySelector("#waterMl"),
+  doseValue: document.querySelector("#doseValue"),
+  doseUnit: document.querySelector("#doseUnit"),
+  volumeMl: document.querySelector("#volumeMl"),
+  unitResult: document.querySelector("#unitResult"),
+  doseCount: document.querySelector("#doseCount"),
+  syringeFill: document.querySelector("#syringeFill"),
+  syringeDisclaimer: document.querySelector("#syringeDisclaimer"),
+  faqList: document.querySelector("#faqList"),
+  calculateButton: document.querySelector("#calculateButton"),
+  shareButton: document.querySelector("#shareButton"),
+};
+
+const state = {
+  tip: null,
+  tipOwner: null,
+};
+
+function numberFromInput(input) {
+  return Number.parseFloat(input.value);
+}
+
+function formatNumber(value, max = 2) {
+  if (!Number.isFinite(value)) return "0";
+  const minimumFractionDigits = value > 0 && value < 1 ? Math.min(2, max) : 0;
+  return new Intl.NumberFormat("en-GB", {
+    maximumFractionDigits: max,
+    minimumFractionDigits,
+  }).format(value);
+}
+
+function formatMl(value) {
+  const digits = value < 0.1 ? 3 : 2;
+  return `${formatNumber(value, digits)} mL`;
+}
+
+function doseInBaseUnits() {
+  const dose = numberFromInput(els.doseValue);
+  if (els.doseUnit.value === "mg") return dose * 1000;
+  return dose;
+}
+
+function amountInBaseUnits() {
+  const amount = numberFromInput(els.amount);
+  return els.amountUnit.value === "mg" ? amount * 1000 : amount;
+}
+
+function unitsAreCompatible() {
+  const amountIsIu = els.amountUnit.value === "iu";
+  const doseIsIu = els.doseUnit.value === "iu";
+  return amountIsIu === doseIsIu;
+}
+
+function setSyringeFill(volumeMl) {
+  const fillWidth = Math.max(0, Math.min(300, (volumeMl / SYRINGE_VISUAL_ML) * 300));
+  els.syringeFill.setAttribute("width", String(fillWidth));
+}
+
+function setResultError(message) {
+  document.querySelector(".results-panel").classList.add("invalid-state");
+  els.volumeMl.textContent = "-";
+  els.unitResult.textContent = "-";
+  els.doseCount.textContent = "-";
+  els.syringeDisclaimer.textContent = message;
+  setSyringeFill(0);
+}
+
+function clearResultError() {
+  document.querySelector(".results-panel").classList.remove("invalid-state");
+  els.volumeMl.classList.remove("invalid");
+}
+
+function calculate() {
+  syncUrl();
+
+  const amount = amountInBaseUnits();
+  const dose = doseInBaseUnits();
+  const waterMl = numberFromInput(els.waterMl);
+
+  if (amount <= 0 || dose <= 0 || !Number.isFinite(amount) || !Number.isFinite(dose)) {
+    setResultError("Amount and dose must be greater than zero.");
+    return;
+  }
+
+  if (waterMl < 2 || waterMl > 10 || !Number.isFinite(waterMl)) {
+    setResultError("Bacteriostatic water should be between 2 and 10 mL.");
+    return;
+  }
+
+  if (!unitsAreCompatible()) {
+    setResultError("IU is compound-specific. Use iU for both amount and dose, or use mg/mcg.");
+    return;
+  }
+
+  clearResultError();
+
+  const volumeMl = (dose / amount) * waterMl;
+  const syringeUnits = volumeMl / UNIT_ML;
+  const doses = amount / dose;
+
+  els.volumeMl.textContent = formatMl(volumeMl);
+  els.unitResult.textContent = formatNumber(syringeUnits, 1);
+  els.doseCount.textContent = formatNumber(doses, doses < 1 ? 2 : 1);
+  els.syringeDisclaimer.innerHTML = `This result is equivalent to <strong>${formatMl(volumeMl)}</strong>. We recommend you use a <strong>0.3 mL, 0.5 mL or 1 mL</strong> syringe.`;
+  setSyringeFill(volumeMl);
+}
+
+function syncDoseUnitToAmount() {
+  if (els.amountUnit.value === "iu") {
+    els.doseUnit.value = "iu";
+    return;
+  }
+
+  els.doseUnit.value = "mcg";
+}
+
+function syncUrl() {
+  try {
+    const url = new URL(window.location.href);
+    url.searchParams.delete("mode");
+    url.searchParams.set("amount", els.amount.value || "0");
+    url.searchParams.set("amountUnit", els.amountUnit.value);
+    url.searchParams.set("water", els.waterMl.value || "0");
+    url.searchParams.set("dose", els.doseValue.value || "0");
+    url.searchParams.set("unit", els.doseUnit.value);
+    window.history.replaceState({}, "", url);
+  } catch {
+    // Some in-app browsers restrict history updates for local files.
+  }
+}
+
+function restoreFromUrl() {
+  const params = new URLSearchParams(window.location.search);
+  const amount = params.get("amount");
+  const amountUnit = params.get("amountUnit");
+  const water = params.get("water");
+  const dose = params.get("dose");
+  const unit = params.get("unit");
+
+  if (amount) els.amount.value = amount;
+  if (amountUnit === "mg" || amountUnit === "iu") els.amountUnit.value = amountUnit;
+  if (water) els.waterMl.value = water;
+  if (dose) els.doseValue.value = dose;
+  if (unit === "mg" || unit === "mcg" || unit === "iu") els.doseUnit.value = unit;
+
+  if (!unit) syncDoseUnitToAmount();
+  calculate();
+}
+
+function showTip(button) {
+  hideTip();
+
+  const tip = document.createElement("div");
+  tip.className = "tip-pop";
+  tip.textContent = button.dataset.tip;
+  document.body.append(tip);
+
+  const rect = button.getBoundingClientRect();
+  const top = rect.bottom + 10;
+  const left = Math.min(rect.left - 12, window.innerWidth - tip.offsetWidth - 14);
+  tip.style.top = `${top}px`;
+  tip.style.left = `${Math.max(14, left)}px`;
+  button.setAttribute("aria-label", button.dataset.tip);
+  state.tip = tip;
+  state.tipOwner = button;
+}
+
+function hideTip() {
+  if (state.tip) {
+    state.tip.remove();
+    state.tip = null;
+    state.tipOwner = null;
+  }
+}
+
+function setTemporaryButtonText(button, text) {
+  const original = button.textContent;
+  button.textContent = text;
+  window.setTimeout(() => {
+    button.textContent = original;
+  }, 1800);
+}
+
+async function copyShareText(text) {
+  if (navigator.clipboard && window.isSecureContext) {
+    await navigator.clipboard.writeText(text);
+    return true;
+  }
+
+  return false;
+}
+
+function buildSelfFile() {
+  return new File([PRISTINE_HTML], "renew-peptide-calculator.html", {
+    type: "text/html",
+  });
+}
+
+async function shareCalculator(event) {
+  if (event) event.preventDefault();
+  calculate();
+
+  const isHosted =
+    window.location.protocol === "http:" || window.location.protocol === "https:";
+  const url = window.location.href;
+  const blurb = "Renew Labs peptide reconstitution calculator.";
+
+  // 1) Best path: attach THIS calculator as an .html file to the native share
+  //    sheet (WhatsApp appears as an option, with the file already attached).
+  try {
+    const file = buildSelfFile();
+    if (navigator.canShare && navigator.canShare({ files: [file] })) {
+      await navigator.share({
+        files: [file],
+        title: "Renew Labs Peptide Calculator",
+        text: blurb,
+      });
+      return;
+    }
+  } catch (error) {
+    if (error && error.name === "AbortError") return; // user dismissed the sheet
+    // otherwise fall through to the link/text fallbacks
+  }
+
+  // 2) Hosted at a real URL: share the link (sheet first, then WhatsApp web).
+  if (isHosted) {
+    try {
+      if (navigator.share) {
+        await navigator.share({
+          title: "Renew Labs Peptide Calculator",
+          text: blurb,
+          url,
+        });
+        return;
+      }
+    } catch (error) {
+      if (error && error.name === "AbortError") return;
+    }
+    window.open(
+      `https://wa.me/?text=${encodeURIComponent(`${blurb} ${url}`)}`,
+      "_blank",
+      "noopener,noreferrer"
+    );
+    return;
+  }
+
+  // 3) Opened from a local file with no file-share support: copy + guide,
+  //    never navigate away or crash.
+  try {
+    if (await copyShareText(blurb)) {
+      setTemporaryButtonText(els.shareButton, "Copied — attach this file");
+      return;
+    }
+  } catch {
+    // ignore and show the manual hint
+  }
+
+  setTemporaryButtonText(els.shareButton, "Attach this HTML file");
+}
+
+els.amountUnit.addEventListener("change", () => {
+  syncDoseUnitToAmount();
+  calculate();
+});
+
+// Keep the calculator live on desktop and on browsers that fire input events.
+["input", "change"].forEach((eventName) => {
+  els.form.addEventListener(eventName, () => calculate());
+});
+
+// Explicit, always-reliable trigger (primary path on mobile).
+els.calculateButton.addEventListener("click", () => {
+  hideTip();
+  if (document.activeElement && typeof document.activeElement.blur === "function") {
+    document.activeElement.blur(); // commit any in-progress number entry first
+  }
+  calculate();
+});
+
+els.form.addEventListener("reset", (event) => {
+  event.preventDefault();
+  hideTip();
+  els.amount.value = "0";
+  els.amountUnit.value = "mg";
+  els.waterMl.value = "0";
+  els.doseValue.value = "0";
+  els.doseUnit.value = "mcg";
+  calculate();
+});
+
+// Clear the placeholder zero on focus (covers tap on iOS/Android and click on
+// desktop), restore it on blur when left empty.
+[els.amount, els.waterMl, els.doseValue].forEach((input) => {
+  input.addEventListener("focus", () => {
+    if (input.value === "0") {
+      input.value = "";
+      try {
+        if (typeof input.select === "function") input.select();
+      } catch {
+        // some browsers reject select() on number inputs; safe to ignore
+      }
+    }
+  });
+
+  input.addEventListener("blur", () => {
+    if (input.value.trim() === "") {
+      input.value = "0";
+      calculate();
+    }
+  });
+});
+
+// Tooltips: a single click handler works on tap (mobile) and click (desktop).
+// Tap the dot again, or anywhere else, to dismiss.
+document.querySelectorAll(".info-dot").forEach((button) => {
+  button.title = button.dataset.tip;
+
+  button.addEventListener("click", (event) => {
+    event.preventDefault();
+    event.stopPropagation();
+    if (state.tipOwner === button) {
+      hideTip();
+    } else {
+      showTip(button);
+    }
+  });
+});
+
+// FAQ accordion: opening one closes the others (all platforms).
+els.faqList.addEventListener(
+  "toggle",
+  (event) => {
+    const activeItem = event.target;
+    if (!activeItem.open) return;
+
+    els.faqList.querySelectorAll(".faq-item").forEach((item) => {
+      if (item !== activeItem) item.open = false;
+    });
+  },
+  true
+);
+
+document.addEventListener("click", hideTip);
+window.addEventListener("resize", hideTip);
+window.addEventListener("scroll", hideTip, { passive: true });
+els.shareButton.addEventListener("click", shareCalculator);
+
+restoreFromUrl();
+
+    </script>
+  </body>
+</html>
