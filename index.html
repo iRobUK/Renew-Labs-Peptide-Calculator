@@ -1,0 +1,191 @@
+<!doctype html>
+<html lang="en-GB">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Renew Labs peptide calculator for vial reconstitution research calculations."
+    />
+    <title>Renew Labs Peptide Calculator</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero" aria-labelledby="page-title">
+        <div class="hero-copy">
+          <img src="renew-mark-white.svg" alt="" />
+          <strong>Renew Labs</strong>
+          <h1 id="page-title">Peptide reconstitution calculator</h1>
+        </div>
+      </section>
+
+      <section class="calculator-card" aria-label="Peptide calculator">
+        <div class="content-grid">
+          <div class="input-stack">
+          <form class="input-panel" id="calculatorForm">
+            <div class="field">
+              <label for="amountMg">
+                <span>Amount of Peptide</span>
+                <button class="info-dot" type="button" data-tip="Amount of peptide (in mg or iu) in the vial">i</button>
+              </label>
+              <div class="input-wrap unit-select">
+                <input id="amountMg" name="amountMg" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+                <select id="amountUnit" name="amountUnit" aria-label="Peptide amount unit">
+                  <option value="mg">mg</option>
+                  <option value="iu">iU</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="field" id="waterField">
+              <label for="waterMl">
+                <span id="waterLabel">Bacteriostatic Water</span>
+                <button class="info-dot" type="button" id="waterInfo" data-tip="Amount of bacteriostatic water you're adding to the vial">i</button>
+              </label>
+              <div class="input-wrap">
+                <input id="waterMl" name="waterMl" type="number" inputmode="decimal" min="0" max="10" step="0.1" value="0" />
+                <span>mL</span>
+              </div>
+              <p class="hint">Accepted range: 2-10 mL.</p>
+            </div>
+
+            <div class="field">
+              <label for="doseValue">
+                <span id="doseLabel">Dose</span>
+                <button class="info-dot" type="button" data-tip="The dose you want. Choose either mcg, iU or mg">i</button>
+              </label>
+              <div class="input-wrap unit-select">
+                <input id="doseValue" name="doseValue" type="number" inputmode="decimal" min="0" step="0.01" value="0" />
+                <select id="doseUnit" name="doseUnit" aria-label="Dose unit">
+                  <option value="mcg">mcg</option>
+                  <option value="iu">iU</option>
+                  <option value="mg">mg</option>
+                </select>
+              </div>
+            </div>
+
+            <div class="button-row">
+              <button class="secondary-action" type="reset">Reset</button>
+            </div>
+          </form>
+          <button class="primary-action share-action" type="button" id="shareButton">Share via WhatsApp</button>
+          </div>
+
+          <section class="results-panel invalid-state" aria-live="polite">
+            <div class="result-head">
+              <p class="eyebrow">Results</p>
+              <h2 id="resultTitle">Vial dosage</h2>
+            </div>
+
+            <div class="result-grid">
+              <article class="result-tile featured">
+                <span id="volumeTitle">Volume to draw</span>
+                <strong id="volumeMl">-</strong>
+              </article>
+              <article class="result-tile" id="unitTile">
+                <span id="unitTitle">Units to draw</span>
+                <strong id="unitResult">-</strong>
+              </article>
+              <article class="result-tile" id="countTile">
+                <span id="countTitle">Approx doses / vial</span>
+                <strong id="doseCount">-</strong>
+              </article>
+            </div>
+
+            <div class="syringe-wrap" id="syringeWrap" aria-label="Syringe draw guide">
+              <svg class="dose-illustration syringe-illustration" viewBox="0 0 520 150" role="img" aria-label="Syringe">
+                <line x1="12" y1="75" x2="95" y2="75" />
+                <line x1="20" y1="52" x2="20" y2="98" />
+                <rect class="syringe-fill" id="syringeFill" x="96" y="42" width="0" height="66" rx="2" />
+                <rect x="96" y="42" width="300" height="66" rx="2" />
+                <g class="syringe-marks">
+                  <line x1="128" y1="42" x2="128" y2="78" />
+                  <line x1="160" y1="42" x2="160" y2="66" />
+                  <line x1="192" y1="42" x2="192" y2="78" />
+                  <line x1="224" y1="42" x2="224" y2="66" />
+                  <line x1="256" y1="42" x2="256" y2="78" />
+                  <line x1="288" y1="42" x2="288" y2="66" />
+                  <line x1="320" y1="42" x2="320" y2="78" />
+                  <line x1="352" y1="42" x2="352" y2="66" />
+                  <line x1="384" y1="42" x2="384" y2="78" />
+                </g>
+                <path d="M396 57 L430 68 L430 82 L396 93 Z" />
+                <line x1="430" y1="75" x2="500" y2="75" />
+              </svg>
+              <p id="syringeDisclaimer">
+                Enter your peptide amount, bacteriostatic water and dose to calculate your draw volume.
+              </p>
+            </div>
+
+            <section class="quick-conversions" aria-labelledby="conversion-title">
+              <h3 id="conversion-title">Quick conversions</h3>
+              <div class="conversion-grid">
+                <span>1 mg = 1000 mcg</span>
+                <span>0.1 mL = 10 syringe units</span>
+                <span>1 syringe unit = 0.01 mL</span>
+              </div>
+            </section>
+          </section>
+        </div>
+      </section>
+
+      <section class="faq-shell">
+        <div class="faq-copy">
+          <p class="eyebrow">Guidance</p>
+          <h2 id="faqTitle">FAQs</h2>
+          <p>Your peptide questions, answered.</p>
+        </div>
+        <div class="faq-list" id="faqList">
+          <details class="faq-item" open>
+            <summary>Where can I get tested peptides?</summary>
+            <div class="faq-answer">
+              <p>Renew Labs is able to provide you with peptides and research chemicals that are independently tested. Orders can be placed <a href="https://docs.google.com/forms/d/e/1FAIpQLSeEyYjb_Fmcx5XELqRgr7oAa_qQSYLa3wfYa4VR-rdAORuOLg/viewform?usp=dialog" target="_blank" rel="noopener">here</a>. Additional pricing can be viewed <a href="https://docs.google.com/spreadsheets/d/1JMVdBty3tJZyBeeeDLBATM9cYKSkeTKWLF8yid1AKjs/edit?usp=sharing" target="_blank" rel="noopener">here</a>.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I reconstitute lyophilised peptides?</summary>
+            <div class="faq-answer">
+              <p>Before you begin with reconstitution, you will need the following:</p>
+              <ol class="spaced-list">
+                <li>Your vial of lyophilised peptide or similar molecule.</li>
+                <li>A vial of bacteriostatic (bac) water.</li>
+                <li>A syringe to reconstitute the peptide.</li>
+              </ol>
+              <p>To reconstitute a lyophilised vial, follow the steps below.</p>
+              <ol class="spaced-list">
+                <li>Pop the caps off both your vials of bac water and the lyophilised vial.</li>
+                <li>Inject your syringe into the vial of bac water, pull the plunger back until the bottom of the plunger is in line with the top mark stated on the syringe. This will be either 0.5 or 1.0 mL.</li>
+                <li>Inject the contents of the syringe into the lyophilised vial of peptide (or other molecule).</li>
+                <li>Repeat this process until you meet the desired fill volume.</li>
+                <li>If it hasn't already done so, allow the vial to sit until the peptide/molecule is fully dissolved. You may gently swirl the vial to support this process.</li>
+                <li>Store the newly prepared vial in the fridge along with the opened vial of bac water. Make sure to store the vials in a sealed container.</li>
+              </ol>
+              <p><strong>Note</strong> - Syringes come in 0.5 and 1 mL volumes. This is the equivalent of 50 and 100 units. We recommend that you use 3 mL of bac water to reconstitute your vial; this is the equivalent of 3-6 full syringes depending on the volume of your syringe.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>Which syringe size do I need?</summary>
+            <div class="faq-answer">
+              <p>0.5 or 1 mL syringes with a 29 or 30 gauge needle are recommended. You will also need alcohol swabs and a sharps bin. A list of products can be found <a href="https://docs.google.com/spreadsheets/d/1SHIV8DyZ_1Wl9HtnlXaGnZBrpvp4KybQKamQurZHVnc/edit?usp=sharing" target="_blank" rel="noopener">here</a>.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How do I store my peptides?</summary>
+            <div class="faq-answer">
+              <p>All peptides, once reconstituted need to be refrigerated. To keep the them sterile we recommend you keeping them in a closed, airtight box such as a Tupperware container.</p>
+            </div>
+          </details>
+          <details class="faq-item">
+            <summary>How long will my peptides last?</summary>
+            <div class="faq-answer">
+              <p>Peptides have an amount of time during which they are most effective. For most products the refrigerated life is approximately 30 days.</p>
+            </div>
+          </details>
+        </div>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>
